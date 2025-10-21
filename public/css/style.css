@@ -1,0 +1,55 @@
+:root {
+  --primary-color: #751b1b;
+  --secondary-color: #787878;
+}
+
+.navbar-custom {
+  background-color: transparent !important;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.navbar-brand-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+}
+
+.navbar-brand-tagline {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: #555;
+  display: block;
+  margin-top: -0.25rem;
+}
+
+.navbar-toggler-icon-custom {
+  font-size: 1.75rem;
+  color: #333;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.offcanvas-custom {
+  background-color: var(--primary-color) !important;
+  color: white;
+}
+
+.offcanvas-custom .nav-link {
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.offcanvas-custom .nav-link:hover {
+  color: #fff;
+  background-color: var(--secondary-color);
+  border-radius: 0.5rem;
+}
+
+.offcanvas-title {
+  color: white;
+}
