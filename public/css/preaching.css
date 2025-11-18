@@ -1,0 +1,83 @@
+/* Custom Variables and Styles */
+:root {
+  --bs-red-custom: #8b0000; /* The dark red color for buttons */
+}
+
+.sermon-filter-card {
+  background-color: #f8f8f8; /* Light gray background for the filter section */
+  padding: 30px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.sermon-card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  margin-bottom: 25px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  /* Match the light gray background seen in the image */
+  background-color: white;
+}
+
+.sermon-card-image {
+  background-color: #e9ecef; /* Placeholder image gray */
+  min-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.sermon-card-image i {
+  font-size: 2.5rem;
+  color: #adb5bd; /* Muted icon color */
+}
+
+.sermon-card-body {
+  padding: 20px;
+  text-align: left;
+}
+
+.sermon-card-body .title {
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Custom button styling */
+.btn-audio {
+  background-color: var(--bs-red-custom);
+  color: white;
+  border-color: var(--bs-red-custom);
+  width: 100%;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.btn-audio:hover {
+  background-color: #a51d1d;
+  border-color: #a51d1d;
+  color: white;
+}
+
+.btn-video {
+  background-color: var(--bs-red-custom);
+  color: white;
+  border-color: var(--bs-red-custom);
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.btn-video:hover {
+  background-color: #a51d1d;
+  border-color: #a51d1d;
+  color: white;
+}
+
+/* Adjust input group for search icon alignment */
+.input-group-text {
+  border-left: none;
+  background-color: white;
+  cursor: pointer;
+}
