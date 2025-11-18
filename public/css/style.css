@@ -440,3 +440,22 @@ html {
     margin-bottom: 1rem;
   }
 }
+
+.main-title-section {
+  text-align: center;
+}
+
+.page-item.active .page-link {
+  background-color: darkred;
+  border-color: darkred;
+}
+
+.page-item .page-link {
+  color: darkred;
+}
+
+.page-item .page-link:hover {
+  color: white;
+  background-color: darkred;
+  border-color: darkred;
+}
