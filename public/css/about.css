@@ -1,0 +1,44 @@
+.history-section {
+  padding: 4rem 0;
+}
+.placeholder-box {
+  background-color: #e9ecef;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.placeholder-box i {
+  font-size: 3rem;
+  color: #adb5bd;
+}
+.services-section {
+  padding: 4rem 0 2rem;
+  text-align: center;
+}
+.services-section i {
+  font-size: 2rem;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+.schedule-header-red {
+  background-color: #8b0000;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 0;
+  border-radius: 0.375rem 0.375rem 0 0;
+}
+.schedule-time-box {
+  border-top: 1px solid white;
+  padding: 1rem;
+}
+.schedule-time-box i {
+  color: #343a40;
+  margin-right: 0.5rem;
+}
+.about-us-section {
+  text-align: center;
+}
