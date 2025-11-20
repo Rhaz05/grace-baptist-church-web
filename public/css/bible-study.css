@@ -1,0 +1,58 @@
+.main-content-area {
+  background-color: white;
+  padding: 30px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+.sidebar {
+  background-color: white;
+  padding: 20px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+.pagination .page-item.active .page-link {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+.pagination .page-link {
+  color: #dc3545;
+}
+.pagination .page-link:hover {
+  color: #bd2130;
+}
+
+.mt-0 {
+  margin-top: 0px !important;
+}
+
+.pl-0 {
+  padding-left: 0px !important;
+}
+
+.pr-0 {
+  padding-right: 0px !important;
+}
+
+.left-card-color {
+  background-color: #dfdfdf !important;
+  border: none;
+}
+
+.left-card-color .list-group-item {
+  background-color: transparent !important;
+}
+
+.left-card-radius {
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.right-card-radius {
+  border-radius: 0 0.25rem 0.25rem 0 !important;
+}
+
+.list-group-item.active {
+  color: black !important;
+  font-weight: bold !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 0.25rem !important;
+}
