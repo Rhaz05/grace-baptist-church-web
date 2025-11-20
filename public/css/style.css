@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font */
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
@@ -35,13 +39,15 @@ body {
 }
 
 .navbar-brand-logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 800;
   color: darkred;
   display: block;
 }
 
 .navbar-brand-tagline {
   font-size: 0.875rem;
+  padding-left: 10px;
   opacity: 0.8;
   display: block;
 }
@@ -52,7 +58,7 @@ body {
 }
 
 .offcanvas-custom {
-  background-color: rgba(0, 0, 0, 0.95) !important;
+  background-color: rgba(139, 0, 0, 0.8) !important;
   color: white;
 }
 
@@ -64,7 +70,7 @@ body {
 }
 
 .offcanvas-custom .nav-link.active {
-  color: #dc3545 !important;
+  color: #ffec3e !important;
   font-weight: bold;
 }
 
