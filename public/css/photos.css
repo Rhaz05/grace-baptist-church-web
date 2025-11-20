@@ -1,0 +1,30 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.carousel-section {
+  width: 100%;
+
+  margin: 0 auto;
+}
+
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.content-grid-section h2 {
+  margin-bottom: 2.5rem;
+}
+
+.content-box {
+  background-color: #e0e0e0;
+  height: 150px;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-weight: bold;
+}
