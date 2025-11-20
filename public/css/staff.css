@@ -1,0 +1,42 @@
+.text-section {
+  background-color: #ffffff;
+  padding: 40px 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.team-section {
+  background-color: #e9ecef;
+  padding: 60px 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.member-circle {
+  width: 120px;
+  height: 120px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.member-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.team-member h5 {
+  margin-bottom: 0;
+}
+.team-member p {
+  font-size: 0.9em;
+  color: #6c757d;
+}
