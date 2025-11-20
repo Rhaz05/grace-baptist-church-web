@@ -27,6 +27,20 @@ body {
   object-fit: cover;
 }
 
+/* img background */
+#img-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover;
+  filter: contrast(100%) sepia(50%);
+}
+
 /* Header/Navigation Styles */
 .navbar-custom {
   background: transparent !important;
@@ -41,13 +55,13 @@ body {
 .navbar-brand-logo {
   font-size: 1.8rem;
   font-weight: 800;
-  color: darkred;
+  padding-top: 1%;
+  color: rgb(235, 11, 30);
   display: block;
 }
 
 .navbar-brand-tagline {
   font-size: 0.875rem;
-  padding-left: 10px;
   opacity: 0.8;
   display: block;
 }
@@ -102,7 +116,7 @@ body {
 
 /* Quick Info Section - Keep original white background */
 .quick-info-section {
-  background-color: #fff;
+  background-color: #f8f8f8;
   padding: 4rem 0;
 }
 
@@ -133,7 +147,7 @@ body {
 
 /* Sermon Section - Keep original light gray background */
 .sermon-section {
-  background-color: #f8f8f8;
+  background-color: #f4f5fe;
   padding: 4rem 0;
 }
 
