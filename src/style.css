@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-church-red: #8b0000;
+  --color-church-dark: #1a1a1a;
+  --color-church-accent: #ff4d4d;
+}
+
+:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: transparent;
+  color: white;
+}
