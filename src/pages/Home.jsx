@@ -87,7 +87,7 @@ const Home = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <h2 className="text-gray-800 font-bold text-xl uppercase tracking-[0.3em] mb-2">
+          <h2 className="text-gray-800 font-bold text-4xl uppercase tracking-[0.3em] mb-2">
             Grace Baptist Church
           </h2>
           <div className="h-1.5 w-24 bg-[#8B0000] mx-auto mb-4 rounded-full"></div>
@@ -107,7 +107,7 @@ const Home = () => {
             variants={fadeInUp}
             initial="initial"
             animate="animate"
-            className="text-5xl md:text-8xl font-black text-gray-900 leading-tight uppercase tracking-tighter mb-8"
+            className="text-5xl md:text-7xl font-black text-gray-900 leading-tight uppercase tracking-tighter mb-8"
           >
             Welcome to <br />
             <span className="text-[#8B0000]">Grace</span> Baptist
@@ -251,10 +251,10 @@ const Home = () => {
           className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"
         >
           <div>
-            <h2 className="text-4xl font-black text-gray-900 uppercase tracking-tighter">
+            <h2 className="text-4xl font-black text-[#8B0000] uppercase tracking-tighter">
               Upcoming Events
             </h2>
-            <p className="text-gray-500 mt-2 font-medium">
+            <p className="text-white mt-2 font-medium">
               To encourage you and connect with others
             </p>
           </div>
