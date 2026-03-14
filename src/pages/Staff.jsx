@@ -14,7 +14,7 @@ const staffMembers = [
 
 const Staff = () => {
   return (
-    <div className="pt-[70px] pb-20">
+    <div className="pt-70px pb-20">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* --- PAGE HEADER --- */}
         <motion.section

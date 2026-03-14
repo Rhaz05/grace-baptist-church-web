@@ -66,18 +66,18 @@ const Footer = () => {
             <h5 className="text-white font-bold mb-6 text-lg">Contact Us</h5>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <FaMapMarkerAlt className="text-church-red mt-1 flex-shrink-0" />
+                <FaMapMarkerAlt className="text-church-red mt-1 shrink-0" />
                 <span>
                   Citta Grande 3 Grace Baptist Church, Lot 1<br />
                   Blk.41 Quezon, Ibabang Iyam Lucena City
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <FaPhone className="text-church-red flex-shrink-0" />
+                <FaPhone className="text-church-red shrink-0" />
                 <span>042 784-4032</span>
               </li>
               <li className="flex items-center gap-3">
-                <FaEnvelope className="text-church-red flex-shrink-0" />
+                <FaEnvelope className="text-church-red shrink-0" />
                 <span>info@gracebaptist.com</span>
               </li>
             </ul>

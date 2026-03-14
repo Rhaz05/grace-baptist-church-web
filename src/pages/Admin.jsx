@@ -85,7 +85,7 @@ const Admin = () => {
           </h2>
         </div>
 
-        <nav className="flex-grow p-4 space-y-2 mt-4">
+        <nav className="grow p-4 space-y-2 mt-4">
           <SidebarLink
             active={activeTab === "events"}
             onClick={() => setActiveTab("events")}
@@ -116,7 +116,7 @@ const Admin = () => {
         </div>
       </aside>
 
-      <main className="flex-grow ml-64 p-8">
+      <main className="grow ml-64 p-8">
         <header className="mb-10 flex justify-between items-end">
           <div>
             <h1 className="text-3xl font-bold capitalize">

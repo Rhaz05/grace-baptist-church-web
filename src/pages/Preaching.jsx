@@ -88,7 +88,7 @@ const Preaching = () => {
   );
 
   return (
-    <div className="pt-[80px] pb-24 overflow-hidden">
+    <div className="pt-80px pb-24 overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* --- PAGE HEADER --- */}
         <motion.div
@@ -110,7 +110,7 @@ const Preaching = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-20 rounded-[3rem] overflow-hidden shadow-2xl relative group border border-white/5 h-[500px]"
+              className="mb-20 rounded-[3rem] overflow-hidden shadow-2xl relative group border border-white/5 h-500px"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
@@ -118,7 +118,7 @@ const Preaching = () => {
                   backgroundImage: `url('${getThumbnail(featuredSermon.video_url)}')`,
                 }}
               ></div>
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t md:bg-linear-to-r from-black via-black/40 to-transparent"></div>
 
               <div className="relative z-10 p-10 md:p-20 flex flex-col justify-center h-full md:w-2/3">
                 <motion.span
@@ -155,10 +155,10 @@ const Preaching = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="bg-black/60 backdrop-blur-2xl p-8 rounded-[2rem] shadow-2xl border border-white/20 mb-16"
+          className="bg-black/60 backdrop-blur-2xl p-8 rounded-2rem shadow-2xl border border-white/20 mb-16"
         >
           <div className="flex flex-col md:flex-row gap-6 items-end">
-            <div className="w-full md:flex-grow">
+            <div className="w-full md:grow">
               <label className="text-[10px] font-black text-white uppercase tracking-[0.3em] mb-3 block ml-2">
                 Search Library
               </label>
@@ -182,7 +182,7 @@ const Preaching = () => {
                 <FaCalendarAlt className="absolute left-5 top-1/2 -translate-y-1/2 text-white/50" />
                 <input
                   type="date"
-                  className="w-full pl-14 pr-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-church-red/50 transition-all font-medium [color-scheme:dark]"
+                  className="w-full pl-14 pr-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-church-red/50 transition-all font-medium [scheme:dark]"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
                 />
@@ -313,12 +313,12 @@ const SermonCard = ({ sermon, thumbnail }) => {
         </div>
       </div>
 
-      <div className="p-10 flex flex-col flex-grow">
+      <div className="p-10 flex flex-col grow">
         <h3 className="text-2xl font-black text-zinc-900 mb-4 leading-tight group-hover:text-church-red transition-colors line-clamp-2">
           {sermon.title}
         </h3>
 
-        <p className="text-gray-500 text-sm leading-relaxed mb-8 line-clamp-3 flex-grow font-medium">
+        <p className="text-gray-500 text-sm leading-relaxed mb-8 line-clamp-3 grow font-medium">
           {sermon.description ||
             "Join us as we dive into the Word of God and explore Biblical truths for our daily lives."}
         </p>

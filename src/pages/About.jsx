@@ -30,7 +30,7 @@ const staggerContainer = {
 
 const About = () => {
   return (
-    <div className="pt-[40px] pb-20 container mx-auto px-4 max-w-6xl overflow-hidden">
+    <div className="pt-40px pb-20 container mx-auto px-4 max-w-6xl overflow-hidden">
       {/* --- PAGE HEADER --- */}
       <motion.section
         initial="hidden"
@@ -56,7 +56,7 @@ const About = () => {
         variants={fadeInUp}
         className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl mb-20 border border-gray-100"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[450px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-450px">
           {/* Text Content */}
           <div className="lg:col-span-7 p-10 md:p-16 flex flex-col justify-center">
             <h2 className="text-4xl font-black text-gray-900 mb-2 tracking-tight">
@@ -234,7 +234,7 @@ const About = () => {
             </div>
 
             {/* Google Map */}
-            <div className="lg:col-span-7 h-[500px] bg-zinc-200 grayscale hover:grayscale-0 transition-all duration-700">
+            <div className="lg:col-span-7 h-500px bg-zinc-200 grayscale hover:grayscale-0 transition-all duration-700">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3866.671048873403!2d121.61177637591325!3d13.935639191062925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd4c8c7f3b8b1b%3A0x6b4b4b4b4b4b4b4b!2sLucena%20City%2C%20Quezon!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph"
                 width="100%"

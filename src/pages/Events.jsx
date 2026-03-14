@@ -68,7 +68,7 @@ const Events = () => {
   const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
   return (
-    <div className="pt-[70px] pb-20">
+    <div className="pt-70px pb-20">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* --- HEADER --- */}
         <motion.section
@@ -214,7 +214,7 @@ const EventCard = ({ event, index }) => {
 
       <div className="p-6 flex gap-4">
         {/* Date Badge */}
-        <div className="flex-shrink-0 text-center border border-gray-100 rounded-xl overflow-hidden h-fit shadow-sm">
+        <div className="shrink-0 text-center border border-gray-100 rounded-xl overflow-hidden h-fit shadow-sm">
           <div className="bg-church-red text-white text-[10px] font-black px-3 py-1">
             {month}
           </div>
@@ -224,7 +224,7 @@ const EventCard = ({ event, index }) => {
         </div>
 
         {/* Content */}
-        <div className="flex-grow">
+        <div className="grow">
           <h3 className="font-bold text-gray-800 text-xl mb-3 leading-tight">
             {event.title}
           </h3>
