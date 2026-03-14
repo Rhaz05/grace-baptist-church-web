@@ -52,7 +52,7 @@ const Header = () => {
                 Grace Baptist Church
               </span>
               <span className="text-xs text-gray-400 group-hover:text-white transition-colors hidden sm:block">
-                Worship • Community • Service
+                The Friendliest Church in Town
               </span>
             </div>
           </Link>
