@@ -35,17 +35,24 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-church-dark border-b-4 border-church-red shadow-lg">
+      <header className="sticky top-0 z-50 bg-[#ecfeffa2] border-b-4 border-church-red backdrop-blur-[50px] shadow-lg">
         <nav className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-3 text-decoration-none group">
-            <div className="h-12 w-auto">
-              <img src={`${base}img/church_logo.png`} alt="Logo" className="h-full w-auto" />
+          <Link
+            to="/"
+            className="flex items-center gap-7 text-decoration-none group"
+          >
+            <div className="h-18 w-auto">
+              <img
+                src={`${base}img/church_logo.png`}
+                alt="Logo"
+                className="h-full w-auto"
+              />
             </div>
-            <div className="flex flex-col text-white leading-tight">
-              <span className="font-bold text-xl uppercase tracking-wide">
+            <div className="flex flex-col text-church-dark stroke-white leading-tight">
+              <span className="font-extrabold stroke-5 text-2xl uppercase tracking-wide">
                 Grace Baptist Church
               </span>
-              <span className="text-xs text-gray-400 group-hover:text-white transition-colors hidden sm:block">
+              <span className="text-lg font-medium text-gray-600 group-hover:text-white transition-colors hidden sm:block">
                 The Friendliest Church in Town
               </span>
             </div>
