@@ -22,45 +22,47 @@ const ConnectSection = () => {
             soon!
           </p>
         </div>
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="space-y-2">
-              <label className="text-white font-medium">Your Name *</label>
-              <input
-                type="text"
-                className="w-full p-3 rounded-lg bg-white text-gray-900 outline-none focus:ring-2 focus:ring-church-red"
-              />
+        <form className="flex flex-col space-y-6">
+          <div className="flex justify-center gap-6">
+            <div className="flex flex-col w-100 gap-6">
+              <div className="space-y-2">
+                <label className="text-white font-medium">Your Name *</label>
+                <input
+                  type="text"
+                  className="w-full p-3 rounded-lg bg-white text-gray-900 outline-none focus:ring-2 focus:ring-church-red"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-white font-medium">Your Phone *</label>
+                <input
+                  type="tel"
+                  className="w-full p-3 rounded-lg bg-white text-gray-900 outline-none focus:ring-2 focus:ring-church-red"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-white font-medium">Your Email *</label>
+                <input
+                  type="email"
+                  className="w-full p-3 rounded-lg bg-white text-gray-900 outline-none focus:ring-2 focus:ring-church-red"
+                />
+              </div>
             </div>
-            <div className="space-y-2">
-              <label className="text-white font-medium">Your Phone *</label>
-              <input
-                type="tel"
-                className="w-full p-3 rounded-lg bg-white text-gray-900 outline-none focus:ring-2 focus:ring-church-red"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-white font-medium">Your Email *</label>
-              <input
-                type="email"
-                className="w-full p-3 rounded-lg bg-white text-gray-900 outline-none focus:ring-2 focus:ring-church-red"
-              />
-            </div>
-          </div>
-          <div className="space-y-4">
-            <p className="text-white font-medium">I'd Like To Learn More About:</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {options.map((opt) => (
-                <label
-                  key={opt}
-                  className="flex items-center gap-3 text-gray-300 cursor-pointer hover:text-white transition-colors"
-                >
-                  <input
-                    type="checkbox"
-                    className="w-4 h-4 rounded border-gray-300 accent-church-red"
-                  />
-                  <span className="text-sm">{opt}</span>
-                </label>
-              ))}
+            <div className="space-y-4">
+              <p className="text-white font-medium">I'd Like To Learn More About:</p>
+              <div className="flex flex-col gap-3">
+                {options.map((opt) => (
+                  <label
+                    key={opt}
+                    className="flex items-center gap-5 text-gray-300 cursor-pointer hover:text-white transition-colors"
+                  >
+                    <input
+                      type="checkbox"
+                      className="w-10 h-5 rounded border-gray-300 accent-church-red"
+                    />
+                    <span className="text-md">{opt}</span>
+                  </label>
+                ))}
+              </div>
             </div>
           </div>
           <div className="space-y-2">

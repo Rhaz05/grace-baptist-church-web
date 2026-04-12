@@ -117,20 +117,20 @@ const Home = () => {
         </motion.div>
       </div>
 
-      <div className="flex justify-center gap-3 mb-28">
+      <div className="xl:flex justify-center gap-3 mb-28 ">
         {/* --- SERVICES INFO --- */}
-        <section className="mt-8 text-center relative">
+        <section className="mt-8 text-center px-10 relative">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white/95 backdrop-blur-xl rounded-[3rem] p-12 pb-3 md:p-10 shadow-2xl mx-auto max-w-4xl border-t-8 border-church-red relative z-10"
+            className="bg-white/95 backdrop-blur-xl rounded-[3rem] p-12 pb-3 md:p-10 shadow-2xl mx-auto max-w-7xl xl:w-screen border-t-8 border-church-red relative z-10"
           >
             <div className="flex justify-center mb-8 -mt-24">
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 1 }}
-                className="bg-church-red p-6 rounded-3xl shadow-2xl shadow-red-900/40 text-white"
+                className="bg-church-red p-7 rounded-3xl shadow-2xl shadow-red-900/40 text-white"
               >
                 <FaRegClock className="text-5xl" />
               </motion.div>
@@ -141,7 +141,7 @@ const Home = () => {
               school class, traditional worship, or midweek prayer, there is a place for you here.
             </p>
             {/* --- SCHEDULE GRID --- */}
-            <section className="flex justify-center gap-5 max-w-7xl mx-auto">
+            <section className="xl:flex justify-center gap-5 px-10 max-w-7xl mx-auto">
               {/* SUNDAYS */}
               <motion.div
                 initial="hidden"
@@ -154,7 +154,7 @@ const Home = () => {
                 </div>
                 <motion.div
                   variants={staggerContainer}
-                  className="bg-white rounded-b-3xl rounded-t-3xl shadow-2xl overflow-hidden grid grid-cols-1 xl:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100 border border-gray-50"
+                  className="bg-white rounded-3xl shadow-2xl overflow-hidden grid xl:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-100 border border-gray-50"
                 >
                   <ScheduleItem
                     time="9:00 AM"
@@ -288,7 +288,7 @@ const ScheduleItem = ({ time, title, desc }) => (
   <motion.div
     variants={fadeInUp}
     whileHover={{ backgroundColor: '#fff5f5' }}
-    className="pt-18 px-10 h-90 transition-colors group cursor-default"
+    className="xl:h-90 xl:py-20 md:pt-30 sm:py-10 px-4 transition-colors group cursor-default"
   >
     <div className="flex flex-col items-center mb-7">
       <span className="pb-8 font-black text-zinc-900 text-center text-3xl tracking-tighter">
@@ -296,7 +296,7 @@ const ScheduleItem = ({ time, title, desc }) => (
       </span>
       <h4 className="font-bold text-gray-800 text-center text-xl mb-1">{title}</h4>
       <p className="text-gray-500 text-center font-medium">{desc}</p>
-      <FaInfoCircle className="text-church-red my-10 text-xl group-hover:rotate-12 transition-transform" />
+      <FaInfoCircle className="text-church-red xl:absolute xl:bottom-22 sm:mt-10 md:my-20 text-xl group-hover:rotate-12 transition-transform" />
     </div>
   </motion.div>
 )
