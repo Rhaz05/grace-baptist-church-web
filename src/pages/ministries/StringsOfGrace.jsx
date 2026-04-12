@@ -3,9 +3,10 @@ import React from 'react'
 function StringsOfGrace() {
   return (
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil totam, ipsa pariatur voluptate
-      beatae reiciendis sint ab velit. Officia facilis laudantium porro magnam unde ducimus quo ut
-      fugiat perspiciatis? Minus?
+      The Music Ministry is dedicated to glorifying God through Christ-centered worship, 
+      providing musical leadership that enriches services and supports the proclamation of 
+      the Word. Through the Strings of Grace, our group of musicians faithfully offers 
+      instrumental excellence that fosters reverent worship.
     </div>
   )
 }

@@ -3,6 +3,12 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 import BobImage from '../assets/images/BandOfBrother.jpg'
+import ChildrenImage from '../assets/images/children.jpg'
+import ChoirImage from '../assets/images/choir.jpg'
+import JeepnyImage from '../assets/images/jeepny.jpg'
+import LogImage from '../assets/images/log.jpg'
+import SogImage from '../assets/images/sog.jpg'
+import YouthImage from '../assets/images/youth.jpg'
 import defaultImage from '../assets/images/place-holder-image.jpg'
 
 const MinistryLayout = () => {
@@ -18,19 +24,19 @@ const MinistryLayout = () => {
         }
       case '/ministries/children':
         return {
-          image: defaultImage,
+          image: ChildrenImage,
           title: 'Children Ministry',
           subtitle: 'Children Subtitle',
         }
       case '/ministries/jeepney':
         return {
-          image: defaultImage,
+          image: JeepnyImage,
           title: 'Jeepney Ministry',
           subtitle: 'Jeepney Subtitle',
         }
       case '/ministries/youth':
         return {
-          image: defaultImage,
+          image: YouthImage,
           title: 'Youth Ministry',
           subtitle: 'Youth Subtitle',
         }
@@ -42,14 +48,14 @@ const MinistryLayout = () => {
         }
       case '/ministries/choir':
         return {
-          image: defaultImage,
+          image: ChoirImage,
           title: 'Choir Ministry',
           subtitle: 'Choir Subtitle',
         }
       case '/ministries/cavalry':
         return {
           image: defaultImage,
-          title: 'Cavalry Ministry',
+          title: '2nd Cavalry Squadron',
           subtitle: 'Cavalry Subtitle',
         }
       case '/ministries/multimedia':
@@ -66,14 +72,14 @@ const MinistryLayout = () => {
         }
       case '/ministries/strings-of-grace':
         return {
-          image: defaultImage,
-          title: 'String of Grace Ministry',
+          image: SogImage,
+          title: 'Music Ministry',
           subtitle: 'String of Grace Subtitle',
         }
       case '/ministries/log':
         return {
-          image: defaultImage,
-          title: 'Log Ministry',
+          image: LogImage,
+          title: 'Ladies of Grace Ministry',
           subtitle: 'Log Subtitle',
         }
       default:

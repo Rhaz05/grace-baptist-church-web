@@ -3,11 +3,9 @@ import React from 'react'
 function Children() {
   return (
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam suscipit rem fuga architecto
-      rerum exercitationem repellendus quos maxime velit est fugiat quae, dicta dolor totam, tempore
-      labore reiciendis. Neque perspiciatis, dolorem laboriosam ab, nulla tenetur architecto
-      consequuntur fuga eum rerum odit, adipisci molestias sed rem excepturi beatae itaque
-      voluptates culpa.
+      The Children's Ministry of Grace Baptist Church is committed to providing a Christ-centered 
+      environment where children are taught the Word of God, nurtured in their spiritual growth, 
+      and guided in developing a personal relationship with Jesus Christ.
     </div>
   )
 }

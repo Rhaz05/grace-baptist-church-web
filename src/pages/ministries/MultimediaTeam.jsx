@@ -3,9 +3,9 @@ import React from 'react'
 function MultimediaTeam() {
   return (
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non repudiandae molestias fugit earum
-      error quos, sunt ipsam obcaecati? Hic, qui laborum assumenda accusantium expedita non officia
-      ea delectus doloribus nostrum.
+      The Multimedia Ministry supports the worship and communication efforts of the church 
+      through the responsible use of technology, visual media, and live streaming to enhance 
+      services and extend ministry outreach.
     </div>
   )
 }

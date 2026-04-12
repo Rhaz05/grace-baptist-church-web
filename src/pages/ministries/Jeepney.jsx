@@ -3,11 +3,10 @@ import React from 'react'
 function Jeepney() {
   return (
     <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis aliquid natus neque,
-      dolorum dignissimos omnis quo eius eaque unde doloremque necessitatibus impedit soluta commodi
-      nulla maiores esse nam quidem, obcaecati quas. Iure, eligendi a. Asperiores temporibus
-      delectus nostrum quae quibusdam dolor minus quos, deleniti culpa, dignissimos dolorum
-      voluptate saepe beatae!
+      The Jeepney Ministry of Grace Baptist Church serves as an outreach and 
+      support ministry, providing safe and reliable transportation that enables 
+      individuals and families to attend worship services, church activities, and 
+      spiritual gatherings.
     </div>
   )
 }

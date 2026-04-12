@@ -3,9 +3,9 @@ import React from 'react'
 function Youth() {
   return (
     <div>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, quidem omnis recusandae
-      aperiam a nam animi illo est unde, earum praesentium quo optio ab harum, laboriosam delectus
-      voluptate fugit ipsa.
+      Dedicated to equipping the next generation, the Youth Ministry provides a 
+      Christ-centered environment where young people develop strong faith, godly character, 
+      and a heart for ministry.
     </div>
   )
 }

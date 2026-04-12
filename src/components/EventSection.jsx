@@ -13,7 +13,7 @@ const EventsSection = () => {
       const { data } = await supabase
         .from('events')
         .select('*')
-        .order('event_date', { ascending: true })
+        .order('event_date', { ascending: false })
         .limit(3)
       if (data) setEvents(data)
       setLoading(false)
