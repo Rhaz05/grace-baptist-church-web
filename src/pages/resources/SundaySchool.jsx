@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { supabase } from "../../lib/supabase";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from 'react'
+import { supabase } from '../../lib/supabase'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   FaDownload,
   FaFileAlt,
@@ -8,65 +8,63 @@ import {
   FaSortAmountDown,
   FaSortAmountUp,
   FaInfoCircle,
-} from "react-icons/fa";
+} from 'react-icons/fa'
 
 const SundaySchool = () => {
-  const [allLessons, setAllLessons] = useState([]);
-  const [filteredLessons, setFilteredLessons] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [allLessons, setAllLessons] = useState([])
+  const [filteredLessons, setFilteredLessons] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortOrder, setSortOrder] = useState("newest");
+  const [searchTerm, setSearchTerm] = useState('')
+  const [sortOrder, setSortOrder] = useState('newest')
 
   const getDirectDownloadLink = (url) => {
-    if (!url) return "#";
-    if (url.includes("drive.google.com") && url.includes("/file/d/")) {
-      const idMatch = url.match(/\/d\/(.*?)\//);
+    if (!url) return '#'
+    if (url.includes('drive.google.com') && url.includes('/file/d/')) {
+      const idMatch = url.match(/\/d\/(.*?)\//)
       if (idMatch && idMatch[1])
-        return `https://drive.google.com/uc?export=download&id=${idMatch[1]}`;
+        return `https://drive.google.com/uc?export=download&id=${idMatch[1]}`
     }
-    return url;
-  };
+    return url
+  }
 
   useEffect(() => {
-    fetchLessons();
-  }, []);
+    fetchLessons()
+  }, [])
 
   useEffect(() => {
-    let results = [...allLessons];
+    let results = [...allLessons]
 
     if (searchTerm) {
       results = results.filter(
         (lesson) =>
           lesson.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
           (lesson.description &&
-            lesson.description
-              .toLowerCase()
-              .includes(searchTerm.toLowerCase())),
-      );
+            lesson.description.toLowerCase().includes(searchTerm.toLowerCase())),
+      )
     }
 
     results.sort((a, b) => {
-      const dateA = new Date(a.created_at);
-      const dateB = new Date(b.created_at);
-      return sortOrder === "newest" ? dateB - dateA : dateA - dateB;
-    });
+      const dateA = new Date(a.created_at)
+      const dateB = new Date(b.created_at)
+      return sortOrder === 'newest' ? dateB - dateA : dateA - dateB
+    })
 
-    setFilteredLessons(results);
-  }, [searchTerm, sortOrder, allLessons]);
+    setFilteredLessons(results)
+  }, [searchTerm, sortOrder, allLessons])
 
   async function fetchLessons() {
     try {
       const { data, error } = await supabase
-        .from("resources")
-        .select("*")
-        .eq("category", "Sunday School");
-      if (error) throw error;
-      setAllLessons(data || []);
+        .from('resources')
+        .select('*')
+        .eq('category', 'Sunday School')
+      if (error) throw error
+      setAllLessons(data || [])
     } catch (err) {
-      console.error(err);
+      console.error(err)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
   }
 
@@ -79,8 +77,8 @@ const SundaySchool = () => {
               Lesson <span className="text-church-red">Library</span>
             </h1>
             <p className="text-gray-300 font-medium">
-              Access {allLessons.length} study materials specifically curated
-              for our Sunday School curriculum.
+              Access {allLessons.length} study materials specifically curated for our Sunday School
+              curriculum.
             </p>
           </div>
 
@@ -96,17 +94,11 @@ const SundaySchool = () => {
               />
             </div>
             <button
-              onClick={() =>
-                setSortOrder(sortOrder === "newest" ? "oldest" : "newest")
-              }
+              onClick={() => setSortOrder(sortOrder === 'newest' ? 'oldest' : 'newest')}
               className="flex items-center justify-center gap-2 px-4 py-3 bg-white text-church-dark font-bold rounded-xl hover:bg-church-red hover:text-white transition-all shadow-lg"
             >
-              {sortOrder === "newest" ? (
-                <FaSortAmountDown />
-              ) : (
-                <FaSortAmountUp />
-              )}
-              {sortOrder === "newest" ? "Newest" : "Oldest"}
+              {sortOrder === 'newest' ? <FaSortAmountDown /> : <FaSortAmountUp />}
+              {sortOrder === 'newest' ? 'Newest' : 'Oldest'}
             </button>
           </div>
         </div>
@@ -138,14 +130,12 @@ const SundaySchool = () => {
                 className="col-span-full text-center py-32 bg-white/5 rounded-3xl"
               >
                 <FaInfoCircle className="mx-auto text-5xl text-gray-500 mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  No Matches Found
-                </h3>
+                <h3 className="text-2xl font-bold text-white mb-2">No Matches Found</h3>
                 <p className="text-gray-400">
                   Try searching for a different keyword or check your spelling.
                 </p>
                 <button
-                  onClick={() => setSearchTerm("")}
+                  onClick={() => setSearchTerm('')}
                   className="mt-6 text-church-red font-bold underline underline-offset-4"
                 >
                   Reset Search
@@ -156,15 +146,15 @@ const SundaySchool = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const LessonCard = ({ item, index, getLink }) => {
-  const date = new Date(item.created_at).toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
+  const date = new Date(item.created_at).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
 
   return (
     <motion.div
@@ -209,7 +199,7 @@ const LessonCard = ({ item, index, getLink }) => {
 
         <p className="text-gray-500 text-base mb-10 flex-grow leading-relaxed line-clamp-3">
           {item.description ||
-            "Spiritual nourishment and deep bible study materials provided by the Grace Baptist Sunday School department."}
+            'Spiritual nourishment and deep bible study materials provided by the Grace Baptist Sunday School department.'}
         </p>
 
         <a
@@ -221,7 +211,7 @@ const LessonCard = ({ item, index, getLink }) => {
         </a>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default SundaySchool;
+export default SundaySchool
