@@ -12,7 +12,7 @@ const ConnectSection = () => {
   ]
   return (
     <div className="bg-church-dark border-b border-white/10 py-16">
-      <div className="container mx-auto px-4 max-w-5xl">
+      <div className="container mx-auto px-4 xl:max-w-5xl md:max-w-xl">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-black text-white tracking-widest uppercase mb-4">
             Connect
@@ -23,8 +23,8 @@ const ConnectSection = () => {
           </p>
         </div>
         <form className="flex flex-col space-y-6">
-          <div className="flex justify-center gap-6">
-            <div className="flex flex-col w-100 gap-6">
+          <div className="flex xl:flex-row xl:justify-around md:flex-col md:mx-auto md:gap-10">
+            <div className="flex flex-col md:mx-auto w-110 gap-6">
               <div className="space-y-2">
                 <label className="text-white font-medium">Your Name *</label>
                 <input
@@ -47,13 +47,13 @@ const ConnectSection = () => {
                 />
               </div>
             </div>
-            <div className="space-y-4">
-              <p className="text-white font-medium">I'd Like To Learn More About:</p>
-              <div className="flex flex-col gap-3">
+            <div className="space-y-5 mx-30">
+              <p className="text-white text-center font-medium">I'd Like To Learn More About:</p>
+              <div className="xl:flex xl:flex-col md:grid md:grid-cols-2 md:gap-x-30  gap-2">
                 {options.map((opt) => (
                   <label
                     key={opt}
-                    className="flex items-center gap-5 text-gray-300 cursor-pointer hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-gray-300 cursor-pointer hover:text-white transition-colors"
                   >
                     <input
                       type="checkbox"

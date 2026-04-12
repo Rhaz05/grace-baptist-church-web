@@ -37,22 +37,15 @@ const Header = () => {
     <>
       <header className="sticky top-0 z-50 bg-[#ecfeffa2] border-b-4 border-church-red backdrop-blur-[50px] shadow-lg">
         <nav className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <Link
-            to="/"
-            className="flex items-center gap-7 text-decoration-none group"
-          >
+          <Link to="/" className="flex items-center gap-7 text-decoration-none group">
             <div className="h-18 w-auto">
-              <img
-                src={`${base}img/church_logo.png`}
-                alt="Logo"
-                className="h-full w-auto"
-              />
+              <img src={`${base}img/church_logo.png`} alt="Logo" className="h-full w-auto" />
             </div>
             <div className="flex flex-col text-church-dark stroke-white leading-tight">
               <span className="font-extrabold stroke-5 text-2xl uppercase tracking-wide">
                 Grace Baptist Church
               </span>
-              <span className="text-lg font-medium text-gray-600 group-hover:text-white transition-colors hidden sm:block">
+              <span className="text-lg font-medium text-gray-600 hover:text-red-800 transition-colors hidden sm:block">
                 The Friendliest Church in Town
               </span>
             </div>
@@ -130,10 +123,29 @@ const Header = () => {
                   isOpen={expandedMenus['ministries']}
                   onToggle={() => toggleSubMenu('ministries')}
                 >
-                  <SubLink to="/jeepney-ministry" label="Jeepney Ministry" onClick={toggleMenu} />
-                  <SubLink to="/music" label="Music Ministry" onClick={toggleMenu} />
-                  <SubLink to="/youth" label="Youth" onClick={toggleMenu} />
-                  <SubLink to="/children-ministry" label="Children Ministry" onClick={toggleMenu} />
+                  <SubLink to="/ministries/bob" label="Band of Brothers" onClick={toggleMenu} />
+                  <SubLink to="/ministries/cavalry" label="Cavalry Squadron" onClick={toggleMenu} />
+                  <SubLink
+                    to="/ministries/children"
+                    label="Children Ministry"
+                    onClick={toggleMenu}
+                  />
+                  <SubLink to="/ministries/choir" label="Choir" onClick={toggleMenu} />
+                  <SubLink to="/ministries/jeepney" label="Jeepney" onClick={toggleMenu} />
+                  <SubLink to="/ministries/kitchen" label="Kitchen" onClick={toggleMenu} />
+                  <SubLink to="/ministries/log" label="Log" onClick={toggleMenu} />
+                  <SubLink
+                    to="/ministries/multimedia"
+                    label="Multimedia Team"
+                    onClick={toggleMenu}
+                  />
+                  <SubLink to="/ministries/nursery" label="Nursery" onClick={toggleMenu} />
+                  <SubLink
+                    to="/ministries/strings-of-grace"
+                    label="Strings of Grace"
+                    onClick={toggleMenu}
+                  />
+                  <SubLink to="/ministries/youth" label="Youth" onClick={toggleMenu} />
                 </CollapsibleMenu>
 
                 <NavLink to="/staff" icon={<FaUsers />} label="Staff" onClick={toggleMenu} />
