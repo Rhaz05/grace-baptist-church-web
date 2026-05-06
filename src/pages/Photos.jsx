@@ -9,8 +9,7 @@ import {
   FaExpandAlt,
   FaSpinner,
 } from 'react-icons/fa'
-
-const CATEGORIES = ['All', 'General', 'Worship', 'Youth', 'Events', 'Community', 'Missions']
+import { categories } from '../util/helper.util'
 
 const Photos = () => {
   const [photos, setPhotos] = useState([])
@@ -76,6 +75,8 @@ const Photos = () => {
       </div>
     )
   }
+
+  const allCategories = ['All', ...categories]
 
   return (
     <div className="pt-[120px] pb-24 overflow-hidden  min-h-screen">
@@ -169,7 +170,7 @@ const Photos = () => {
         <section>
           {/* Categories */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-            {CATEGORIES.map((cat) => (
+            {allCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}

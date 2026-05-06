@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../../lib/supabase'
 import { Edit3, Trash2, Search, Image, Star } from 'lucide-react'
-
-const CATEGORIES = ['Sunday Service', 'Picnic', 'Community', 'Missions']
+import { categories } from '../../util/helper.util'
 
 const AdminPhotos = ({ onEdit }) => {
   const [photos, setPhotos] = useState([])
@@ -29,7 +28,7 @@ const AdminPhotos = ({ onEdit }) => {
     fetchPhotos()
   }
 
-  const allCategories = ['All', ...CATEGORIES]
+  const allCategories = ['All', ...categories]
 
   const filtered = photos.filter((p) => {
     const matchesSearch =

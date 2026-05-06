@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Save, Loader2, ImagePlus, Trash2, CheckCircle2 } from 'lucide-react'
+import { categories } from '../../util/helper.util'
 
 // ─── Cloudinary config ────────────────────────────────────────────────────────
 const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME
@@ -23,8 +24,6 @@ const uploadToCloudinary = async (file, folderName) => {
   const data = await res.json()
   return data.secure_url
 }
-
-const PHOTO_CATEGORIES = ['General', 'Worship', 'Youth', 'Events', 'Community', 'Missions']
 
 // ─── Component ────────────────────────────────────────────────────────────────
 const AdminModal = ({ isOpen, onClose, onSubmit, type, data, loading }) => {
@@ -225,7 +224,7 @@ const AdminModal = ({ isOpen, onClose, onSubmit, type, data, loading }) => {
                       defaultValue={data?.category || 'General'}
                       className="w-full appearance-none bg-black/40 border border-white/10 rounded-2xl p-4 text-white font-medium focus:ring-2 focus:ring-church-red/50 focus:border-church-red/50 outline-none transition-all cursor-pointer hover:bg-black/60"
                     >
-                      {PHOTO_CATEGORIES.map((cat) => (
+                      {categories.map((cat) => (
                         <option key={cat} value={cat} className="bg-[#1c2128] text-white">
                           {cat}
                         </option>

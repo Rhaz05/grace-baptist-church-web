@@ -29,3 +29,5 @@ const uploadToCloudinary = async (file) => {
   const data = await res.json()
   return data.secure_url
 }
+
+export const categories = ['Sunday Service', 'Picnic', 'Community', 'Missions', 'Church']
