@@ -1,16 +1,16 @@
-import { motion } from "framer-motion";
-import { FaUser } from "react-icons/fa";
+import { motion } from 'framer-motion'
+import { FaUser } from 'react-icons/fa'
 
 const staffMembers = [
-  { name: "Rodolfo O. Calayan", role: "Head Pastor" },
-  { name: "Bro. Jayvee Tarranco", role: "Sunday School Administrator" },
-  { name: "Bro. Harold Paycao", role: "Music Director" },
-  { name: "Bro. Allan Chester Lagrason", role: "Media Director" },
-  { name: "Bro. Ronel Nieva", role: "Youth Leader" },
-  { name: "Bro. Paolo Narzoles", role: "Jeep Director" },
-  { name: "Sis. Gloriefel Paycao", role: "Ladies Director" },
-  { name: "Bro. Michael Alub", role: "Maintenance Director" },
-];
+  { name: 'Rodolfo O. Calayan', role: 'Head Pastor' },
+  { name: 'Bro. Jayvee Tarranco', role: 'Sunday School Administrator' },
+  { name: 'Bro. Harold Paycao', role: 'Music Director' },
+  { name: 'Bro. Allan Chester Lagrason', role: 'Media Director' },
+  { name: 'Bro. Ronel Nieva', role: 'Youth Leader' },
+  { name: 'Bro. Paolo Narzoles', role: 'Jeep Director' },
+  { name: 'Sis. Gloriefel Paycao', role: 'Ladies Director' },
+  { name: 'Bro. Michael Alub', role: 'Maintenance Director' },
+]
 
 const Staff = () => {
   return (
@@ -22,7 +22,7 @@ const Staff = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12 bg-black/40 p-10 rounded-xl backdrop-blur-sm border-l-4 border-church-red"
         >
-          <h1 className="text-4xl font-bold uppercase text-white mb-4 tracking-wide">
+          <h1 className="text-4xl font-bold uppercase text-church-red mb-4 tracking-wide">
             Meet The Staff
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
@@ -38,20 +38,16 @@ const Staff = () => {
           className="bg-white rounded-2xl p-8 md:p-12 shadow-xl mb-16 border border-white/20 text-center"
         >
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-gray-800">
-              Our Mission
-            </h2>
+            <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Mission</h2>
             <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
               <p>
-                Egestas elit dui scelerisque ut eu purus aliquam vitae
-                habitasse. Egestas elit dui scelerisque ut eu purus aliquam
-                vitae habitasse. Egestas elit dui scelerisque ut eu purus
-                aliquam vitae habitasse.
+                Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse. Egestas elit dui
+                scelerisque ut eu purus aliquam vitae habitasse. Egestas elit dui scelerisque ut eu
+                purus aliquam vitae habitasse.
               </p>
               <p className="italic border-t border-gray-100 pt-4">
-                Excepteur efficient emerging, minim veniam enim aute carefully
-                curated Ginza conversation exquisite perfect nostrud nisi
-                intricate Content.
+                Excepteur efficient emerging, minim veniam enim aute carefully curated Ginza
+                conversation exquisite perfect nostrud nisi intricate Content.
               </p>
             </div>
           </div>
@@ -93,7 +89,7 @@ const Staff = () => {
         </section>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Staff;
+export default Staff

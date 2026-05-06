@@ -1,51 +1,43 @@
-import { useState, useEffect } from "react";
-import { supabase } from "../../lib/supabase";
-import {
-  Edit3,
-  Trash2,
-  Calendar as CalIcon,
-  MapPin,
-  Search,
-} from "lucide-react";
+import { useState, useEffect } from 'react'
+import { supabase } from '../../lib/supabase'
+import { Edit3, Trash2, Calendar as CalIcon, MapPin, Search } from 'lucide-react'
+import { formatImageUrl } from '../../util/helper.util'
 
 const AdminEvents = ({ onEdit }) => {
-  const [events, setEvents] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [events, setEvents] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
-    fetchEvents();
-    window.addEventListener("refreshData", fetchEvents);
-    return () => window.removeEventListener("refreshData", fetchEvents);
-  }, []);
+    fetchEvents()
+    window.addEventListener('refreshData', fetchEvents)
+    return () => window.removeEventListener('refreshData', fetchEvents)
+  }, [])
 
   const fetchEvents = async () => {
     const { data } = await supabase
-      .from("events")
-      .select("*")
-      .order("event_date", { ascending: true });
-    setEvents(data || []);
-  };
+      .from('events')
+      .select('*')
+      .order('event_date', { ascending: true })
+    setEvents(data || [])
+  }
 
   const filteredEvents = events.filter(
     (e) =>
       e.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       e.location.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  )
 
   const handleDelete = async (id) => {
-    if (!confirm("Are you sure you want to delete this event?")) return;
-    await supabase.from("events").delete().eq("id", id);
-    fetchEvents();
-  };
+    if (!confirm('Are you sure you want to delete this event?')) return
+    await supabase.from('events').delete().eq('id', id)
+    fetchEvents()
+  }
 
   return (
     <div className="space-y-4">
       {/* Search Bar Utility */}
       <div className="relative max-w-sm">
-        <Search
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
-          size={16}
-        />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
         <input
           type="text"
           placeholder="Search events..."
@@ -66,18 +58,20 @@ const AdminEvents = ({ onEdit }) => {
           </thead>
           <tbody className="divide-y divide-white/5">
             {filteredEvents.map((event) => (
-              <tr
-                key={event.id}
-                className="hover:bg-white/[0.02] transition-colors group"
-              >
+              <tr key={event.id} className="hover:bg-white/2transition-colors group">
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-gray-800 overflow-hidden flex-shrink-0 border border-white/5">
+                    <div className="w-12 h-12 rounded-lg bg-gray-800 overflow-hidden shrink-0 border border-white/5">
                       {event.image_url ? (
                         <img
-                          src={event.image_url}
+                          // This now handles both standard URLs and Drive URLs
+                          src={formatImageUrl(event.image_url)}
                           className="w-full h-full object-cover"
-                          alt=""
+                          alt={event.title}
+                          onError={(e) => {
+                            // Optional: Handle broken links gracefully
+                            e.target.src = 'https://placehold.co/150/1c2128/6b7280?text=Error'
+                          }}
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center text-gray-600">
@@ -95,11 +89,11 @@ const AdminEvents = ({ onEdit }) => {
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-400">
                   {new Date(event.event_date).toLocaleString([], {
-                    month: "short",
-                    day: "numeric",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit",
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
                   })}
                 </td>
                 <td className="px-6 py-4 text-right">
@@ -124,7 +118,7 @@ const AdminEvents = ({ onEdit }) => {
         </table>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AdminEvents;
+export default AdminEvents
