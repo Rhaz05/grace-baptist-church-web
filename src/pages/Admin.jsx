@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabase";
-import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from 'react'
+import { supabase } from '../lib/supabase'
+import { useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   LayoutDashboard,
   Calendar,
@@ -9,72 +9,67 @@ import {
   FolderTree,
   LogOut,
   Plus,
-} from "lucide-react";
+  Image as ImageIcon,
+} from 'lucide-react'
 
-import AdminEvents from "../pages/admin/AdminEvents";
-import AdminSermons from "../pages/admin/AdminSermons";
-import AdminResources from "../pages/admin/AdminResources";
-import AdminModal from "../pages/admin/AdminModal";
+import AdminEvents from '../pages/admin/AdminEvents'
+import AdminSermons from '../pages/admin/AdminSermons'
+import AdminResources from '../pages/admin/AdminResources'
+import AdminPhotos from '../pages/admin/AdminPhotos'
+import AdminModal from '../pages/admin/AdminModal'
 
 const Admin = () => {
-  const [activeTab, setActiveTab] = useState("events");
-  const [loading, setLoading] = useState(true);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [editingItem, setEditingItem] = useState(null);
-  const [formLoading, setFormLoading] = useState(false);
-  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState('events')
+  const [loading, setLoading] = useState(true)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [editingItem, setEditingItem] = useState(null)
+  const [formLoading, setFormLoading] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const checkUser = async () => {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await supabase.auth.getSession()
       if (!session) {
-        navigate("/login");
+        navigate('/login')
       } else {
-        setLoading(false);
+        setLoading(false)
       }
-    };
-    checkUser();
-  }, [navigate]);
+    }
+    checkUser()
+  }, [navigate])
 
   const handleLogout = async () => {
-    await supabase.auth.signOut();
-    navigate("/login");
-  };
+    await supabase.auth.signOut()
+    navigate('/login')
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormLoading(true);
-
-    const formData = new FormData(e.target);
-    const payload = Object.fromEntries(formData);
-
-    if (payload.image_url === "") payload.image_url = null;
-
+  const handleSubmit = async (payload) => {
+    setFormLoading(true)
     try {
       if (editingItem) {
-        await supabase.from(activeTab).update(payload).eq("id", editingItem.id);
+        await supabase.from(activeTab).update(payload).eq('id', editingItem.id)
       } else {
-        await supabase.from(activeTab).insert([payload]);
+        await supabase.from(activeTab).insert([payload])
       }
 
-      setModalOpen(false);
-      window.dispatchEvent(new Event("refreshData"));
+      setModalOpen(false)
+      window.dispatchEvent(new Event('refreshData'))
     } catch (err) {
-      console.error(err);
-      alert("Error saving data");
+      console.error(err)
+      alert('Error saving data')
     } finally {
-      setFormLoading(false);
+      setFormLoading(false)
     }
-  };
+  }
 
   if (loading)
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-church-red"></div>
       </div>
-    );
+    )
 
   return (
     <div className="min-h-screen bg-[#0f1115] text-gray-100 flex">
@@ -87,22 +82,29 @@ const Admin = () => {
 
         <nav className="grow p-4 space-y-2 mt-4">
           <SidebarLink
-            active={activeTab === "events"}
-            onClick={() => setActiveTab("events")}
+            active={activeTab === 'events'}
+            onClick={() => setActiveTab('events')}
             icon={<Calendar size={20} />}
             label="Events"
           />
           <SidebarLink
-            active={activeTab === "sermons"}
-            onClick={() => setActiveTab("sermons")}
+            active={activeTab === 'sermons'}
+            onClick={() => setActiveTab('sermons')}
             icon={<BookOpen size={20} />}
             label="Sermons"
           />
           <SidebarLink
-            active={activeTab === "resources"}
-            onClick={() => setActiveTab("resources")}
+            active={activeTab === 'resources'}
+            onClick={() => setActiveTab('resources')}
             icon={<FolderTree size={20} />}
             label="Resources"
+          />
+          {/* NEW PHOTOS TAB */}
+          <SidebarLink
+            active={activeTab === 'photos'}
+            onClick={() => setActiveTab('photos')}
+            icon={<ImageIcon size={20} />}
+            label="Photos"
           />
         </nav>
 
@@ -119,21 +121,19 @@ const Admin = () => {
       <main className="grow ml-64 p-8">
         <header className="mb-10 flex justify-between items-end">
           <div>
-            <h1 className="text-3xl font-bold capitalize">
-              {activeTab} Management
-            </h1>
+            <h1 className="text-3xl font-bold capitalize">{activeTab} Management</h1>
             <p className="text-gray-500 font-medium">
               Create, update, and manage your website content.
             </p>
           </div>
           <button
             onClick={() => {
-              setEditingItem(null);
-              setModalOpen(true);
+              setEditingItem(null)
+              setModalOpen(true)
             }}
             className="bg-church-red px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-red-600 transition-all shadow-lg shadow-red-900/20"
           >
-            <Plus size={20} /> Add New {activeTab.slice(0, -1)}
+            <Plus size={20} /> Add New {activeTab === 'photos' ? 'Photo' : activeTab.slice(0, -1)}
           </button>
         </header>
 
@@ -145,27 +145,36 @@ const Admin = () => {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
           >
-            {activeTab === "events" && (
+            {activeTab === 'events' && (
               <AdminEvents
                 onEdit={(item) => {
-                  setEditingItem(item);
-                  setModalOpen(true);
+                  setEditingItem(item)
+                  setModalOpen(true)
                 }}
               />
             )}
-            {activeTab === "sermons" && (
+            {activeTab === 'sermons' && (
               <AdminSermons
                 onEdit={(item) => {
-                  setEditingItem(item);
-                  setModalOpen(true);
+                  setEditingItem(item)
+                  setModalOpen(true)
                 }}
               />
             )}
-            {activeTab === "resources" && (
+            {activeTab === 'resources' && (
               <AdminResources
                 onEdit={(item) => {
-                  setEditingItem(item);
-                  setModalOpen(true);
+                  setEditingItem(item)
+                  setModalOpen(true)
+                }}
+              />
+            )}
+            {/* NEW PHOTOS COMPONENT */}
+            {activeTab === 'photos' && (
+              <AdminPhotos
+                onEdit={(item) => {
+                  setEditingItem(item)
+                  setModalOpen(true)
                 }}
               />
             )}
@@ -182,20 +191,20 @@ const Admin = () => {
         />
       </main>
     </div>
-  );
-};
+  )
+}
 
 const SidebarLink = ({ active, icon, label, onClick }) => (
   <button
     onClick={onClick}
     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition-all ${
       active
-        ? "bg-church-red text-white shadow-lg shadow-red-900/20"
-        : "text-gray-400 hover:bg-white/5 hover:text-white"
+        ? 'bg-church-red text-white shadow-lg shadow-red-900/20'
+        : 'text-gray-400 hover:bg-white/5 hover:text-white'
     }`}
   >
     {icon} {label}
   </button>
-);
+)
 
-export default Admin;
+export default Admin

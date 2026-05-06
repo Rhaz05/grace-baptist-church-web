@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import {
   FaFacebookF,
   FaYoutube,
@@ -14,9 +14,15 @@ import EventsSection from './EventSection'
 const currentYear = new Date().getFullYear()
 
 const Footer = () => {
+  const location = useLocation()
+
+  const hiddenRoutes = ['/events']
+
+  const shouldHideEvents = hiddenRoutes.some((route) => location.pathname.startsWith(route))
+
   return (
     <footer className="bg-church-dark border-t-4 border-church-red text-gray-300 text-sm relative z-20">
-      <EventsSection />
+      {!shouldHideEvents && <EventsSection />}
 
       <ConnectSection />
 
