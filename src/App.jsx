@@ -15,6 +15,7 @@ import Staff from './pages/Staff'
 import Events from './pages/Events'
 import SundaySchool from './pages/resources/SundaySchool'
 import SermonArchive from './pages/resources/SermonArchive'
+import BibleReadingGuide from './pages/resources/BibleReadingGuide'
 import Login from './pages/auth/Login'
 import Missions from './pages/Missions'
 import Photos from './pages/Photos'
@@ -53,6 +54,7 @@ function App() {
           {/* Resources */}
           <Route path="/sunday-school" element={<SundaySchool />} />
           <Route path="/sermon-archive" element={<SermonArchive />} />
+          <Route path="/bible-reading" element={<BibleReadingGuide />} />
 
           <Route path="/missions" element={<Missions title="Missions" />} />
           <Route path="/photos" element={<Photos title="Photo Gallery" />} />
