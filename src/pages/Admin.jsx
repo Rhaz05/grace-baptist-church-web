@@ -10,12 +10,14 @@ import {
   LogOut,
   Plus,
   Image as ImageIcon,
+  Users,
 } from 'lucide-react'
 
 import AdminEvents from '../pages/admin/AdminEvents'
 import AdminSermons from '../pages/admin/AdminSermons'
 import AdminResources from '../pages/admin/AdminResources'
 import AdminPhotos from '../pages/admin/AdminPhotos'
+import AdminConnections from '../pages/admin/AdminConnections'
 import AdminModal from '../pages/admin/AdminModal'
 
 const Admin = () => {
@@ -99,12 +101,17 @@ const Admin = () => {
             icon={<FolderTree size={20} />}
             label="Resources"
           />
-          {/* NEW PHOTOS TAB */}
           <SidebarLink
             active={activeTab === 'photos'}
             onClick={() => setActiveTab('photos')}
             icon={<ImageIcon size={20} />}
             label="Photos"
+          />
+          <SidebarLink
+            active={activeTab === 'connections'}
+            onClick={() => setActiveTab('connections')}
+            icon={<Users size={20} />}
+            label="Connections"
           />
         </nav>
 
@@ -121,20 +128,27 @@ const Admin = () => {
       <main className="grow ml-64 p-8">
         <header className="mb-10 flex justify-between items-end">
           <div>
-            <h1 className="text-3xl font-bold capitalize">{activeTab} Management</h1>
+            <h1 className="text-3xl font-bold capitalize">
+              {activeTab === 'connections' ? 'Connection Requests' : `${activeTab} Management`}
+            </h1>
             <p className="text-gray-500 font-medium">
-              Create, update, and manage your website content.
+              {activeTab === 'connections'
+                ? 'Manage incoming requests from the Connect form.'
+                : 'Create, update, and manage your website content.'}
             </p>
           </div>
-          <button
-            onClick={() => {
-              setEditingItem(null)
-              setModalOpen(true)
-            }}
-            className="bg-church-red px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-red-600 transition-all shadow-lg shadow-red-900/20"
-          >
-            <Plus size={20} /> Add New {activeTab === 'photos' ? 'Photo' : activeTab.slice(0, -1)}
-          </button>
+
+          {activeTab !== 'connections' && (
+            <button
+              onClick={() => {
+                setEditingItem(null)
+                setModalOpen(true)
+              }}
+              className="bg-church-red px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-red-600 transition-all shadow-lg shadow-red-900/20"
+            >
+              <Plus size={20} /> Add New {activeTab === 'photos' ? 'Photo' : activeTab.slice(0, -1)}
+            </button>
+          )}
         </header>
 
         <AnimatePresence mode="wait">
@@ -169,7 +183,6 @@ const Admin = () => {
                 }}
               />
             )}
-            {/* NEW PHOTOS COMPONENT */}
             {activeTab === 'photos' && (
               <AdminPhotos
                 onEdit={(item) => {
@@ -178,6 +191,7 @@ const Admin = () => {
                 }}
               />
             )}
+            {activeTab === 'connections' && <AdminConnections />}
           </motion.div>
         </AnimatePresence>
 

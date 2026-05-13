@@ -16,6 +16,9 @@ const Events = () => {
 
   const [viewDate, setViewDate] = useState(new Date())
   const [selectedDate, setSelectedDate] = useState(null)
+
+  const [selectedEvent, setSelectedEvent] = useState(null)
+
   const today = new Date()
 
   useEffect(() => {
@@ -94,7 +97,7 @@ const Events = () => {
     : []
 
   return (
-    <div className="pt-25 pb-24 min-h-screen">
+    <div className="pt-25 pb-24 min-h-screen relative">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* --- HEADER --- */}
         <motion.section
@@ -165,7 +168,12 @@ const Events = () => {
                     {selectedDateEvents.length > 0 ? (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {selectedDateEvents.map((event, index) => (
-                          <EventCard key={event.id} event={event} index={index} />
+                          <EventCard
+                            key={event.id}
+                            event={event}
+                            index={index}
+                            onClick={() => setSelectedEvent(event)}
+                          />
                         ))}
                       </div>
                     ) : (
@@ -190,7 +198,10 @@ const Events = () => {
                   >
                     {/* 1. Featured Next Event */}
                     {featuredEvent && (
-                      <div className="group bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 cursor-pointer flex flex-col md:flex-row h-auto md:h-85">
+                      <div
+                        onClick={() => setSelectedEvent(featuredEvent)}
+                        className="group bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 cursor-pointer flex flex-col md:flex-row h-auto md:h-85 hover:shadow-2xl hover:border-church-red/30 transition-all duration-300"
+                      >
                         {/* Image Side */}
                         <div className="relative w-full md:w-1/2 h-64 md:h-full overflow-hidden">
                           <img
@@ -201,6 +212,7 @@ const Events = () => {
                             alt={featuredEvent.title}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                           />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                           <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-2xl shadow-lg text-center transform group-hover:-translate-y-1 transition-transform">
                             <span className="block text-church-red font-black text-2xl leading-none mb-0.5">
                               {new Date(featuredEvent.event_date).getDate()}
@@ -245,7 +257,12 @@ const Events = () => {
                     {upcomingEvents.length > 0 && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {upcomingEvents.map((event, index) => (
-                          <EventCard key={event.id} event={event} index={index} />
+                          <EventCard
+                            key={event.id}
+                            event={event}
+                            index={index}
+                            onClick={() => setSelectedEvent(event)}
+                          />
                         ))}
                       </div>
                     )}
@@ -310,7 +327,6 @@ const Events = () => {
                     selectedDate.getMonth() === currentMonth &&
                     selectedDate.getFullYear() === currentYear
 
-                  // Check if this day has an event
                   const hasEvent = events.some((e) => {
                     const eDate = new Date(e.event_date)
                     return (
@@ -320,7 +336,6 @@ const Events = () => {
                     )
                   })
 
-                  // Determine CSS classes based on state
                   let dayStyles = 'bg-gray-50 text-gray-600 hover:bg-gray-200 hover:shadow-sm' // Default
 
                   if (isSelected) {
@@ -339,8 +354,6 @@ const Events = () => {
                       className={`relative aspect-square flex items-center justify-center rounded-xl font-bold text-sm cursor-pointer transition-all duration-200 ${dayStyles}`}
                     >
                       {d}
-
-                      {/* Event Dot Indicator */}
                       {hasEvent && (
                         <div
                           className={`absolute bottom-1.5 w-1.5 h-1.5 rounded-full ${isSelected || isToday ? 'bg-white' : 'bg-church-red'}`}
@@ -364,12 +377,144 @@ const Events = () => {
           </div>
         </div>
       </div>
+
+      {/* --- EVENT DETAILS MODAL --- */}
+      <AnimatePresence>
+        {selectedEvent && (
+          <div className="fixed inset-0 z-999 flex items-center justify-center p-4 py-12 sm:p-8">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedEvent(null)}
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer"
+            />
+
+            {/* 
+               Modal Content 
+               Fixed the height on desktop using 'md:h-[600px]' so the card never blows out the screen. 
+            */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-4xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row z-10 max-h-[90vh] md:h-150"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedEvent(null)}
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full flex items-center justify-center transition-colors shadow-sm"
+              >
+                <FaTimes />
+              </button>
+
+              {/* Modal Image */}
+              <div className="w-full md:w-1/2 h-64 md:h-full relative shrink-0 bg-gray-100">
+                <img
+                  src={
+                    selectedEvent.image_url ||
+                    'https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=1000&auto=format&fit=crop'
+                  }
+                  alt={selectedEvent.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-2xl shadow-lg text-center">
+                  <span className="block text-church-red font-black text-2xl leading-none mb-0.5">
+                    {new Date(selectedEvent.event_date).getDate()}
+                  </span>
+                  <span className="block text-gray-900 font-bold text-[10px] uppercase tracking-widest">
+                    {new Date(selectedEvent.event_date).toLocaleString('default', {
+                      month: 'short',
+                    })}
+                  </span>
+                </div>
+              </div>
+
+              {/* 
+                 Modal Details 
+                 Turned into a flex-col so we can isolate the scrolling just to the description box.
+              */}
+              <div className="w-full md:w-1/2 p-8 md:p-10 flex flex-col h-full max-h-[60vh] md:max-h-full">
+                {/* Fixed Top Content (Title, Date, Time, Location) */}
+                <div className="shrink-0">
+                  <div className="flex items-center gap-2 text-church-red font-bold text-[10px] uppercase tracking-[0.2em] mb-4 mt-2">
+                    <FaCalendarAlt /> Event Details
+                  </div>
+
+                  <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight mb-6 pr-8 line-clamp-2">
+                    {selectedEvent.title}
+                  </h2>
+
+                  <div className="space-y-4 mb-6 p-5 bg-gray-50 rounded-2xl border border-gray-100">
+                    <div className="flex items-center gap-4 text-sm font-bold text-gray-700">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-church-red shadow-sm shrink-0">
+                        <FaCalendarAlt size={16} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">
+                          Date
+                        </p>
+                        {new Date(selectedEvent.event_date).toLocaleDateString('en-US', {
+                          weekday: 'long',
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-sm font-bold text-gray-700">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-church-red shadow-sm shrink-0">
+                        <FaClock size={16} />
+                      </div>
+                      <div>
+                        <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">
+                          Time
+                        </p>
+                        {new Date(selectedEvent.event_date).toLocaleTimeString([], {
+                          hour: '2-digit',
+                          minute: '2-digit',
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-sm font-bold text-gray-700">
+                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-church-red shadow-sm shrink-0">
+                        <FaMapMarkerAlt size={16} />
+                      </div>
+                      <div className="truncate pr-2">
+                        <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-0.5">
+                          Location
+                        </p>
+                        <span className="truncate">{selectedEvent.location || 'TBA'}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Scrollable Description Box */}
+                <div className="flex flex-col min-h-0 grow">
+                  <h3 className="text-sm font-black uppercase tracking-widest text-gray-900 mb-3 shrink-0">
+                    About this Event
+                  </h3>
+                  <div className="overflow-y-auto pr-3 grow pb-2">
+                    <p className="text-gray-600 leading-relaxed whitespace-pre-wrap">
+                      {selectedEvent.description || 'No additional details provided.'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
 
 // --- SUB-COMPONENT: EVENT CARD ---
-const EventCard = ({ event, index }) => {
+const EventCard = ({ event, index, onClick }) => {
   const date = new Date(event.event_date)
   const month = date.toLocaleString('default', { month: 'short' }).toUpperCase()
   const day = date.getDate()
@@ -380,7 +525,8 @@ const EventCard = ({ event, index }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="group bg-white rounded-[2rem] shadow-sm hover:shadow-xl overflow-hidden transition-all duration-300 border border-gray-100 flex flex-col h-full cursor-pointer"
+      onClick={onClick}
+      className="group bg-white rounded-4xl shadow-sm hover:shadow-xl overflow-hidden transition-all duration-300 border border-gray-100 flex flex-col h-full cursor-pointer hover:border-church-red/30"
     >
       <div className="relative h-48 overflow-hidden">
         <img
@@ -391,6 +537,7 @@ const EventCard = ({ event, index }) => {
           alt={event.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
         <div className="absolute top-3 left-3 bg-white px-3 py-1.5 rounded-xl shadow-md text-center transform group-hover:-translate-y-1 transition-transform">
           <span className="block text-church-red font-black text-lg leading-none">{day}</span>
           <span className="block text-gray-500 font-bold text-[9px] uppercase tracking-widest mt-0.5">
