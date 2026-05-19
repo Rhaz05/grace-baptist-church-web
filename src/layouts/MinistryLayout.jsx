@@ -9,6 +9,7 @@ import JeepnyImage from '../assets/images/jeepny.jpg'
 import LogImage from '../assets/images/log.jpg'
 import SogImage from '../assets/images/sog.jpg'
 import YouthImage from '../assets/images/youth.jpg'
+import CavalryImage from '../assets/images/cavalry.jpg'
 import defaultImage from '../assets/images/place-holder-image.jpg'
 
 const MinistryLayout = () => {
@@ -20,73 +21,73 @@ const MinistryLayout = () => {
         return {
           image: BobImage,
           title: 'Band Of Brothers',
-          subtitle: 'BoB Subtitle',
+          subtitle: '',
         }
       case '/ministries/children':
         return {
           image: ChildrenImage,
           title: 'Children Ministry',
-          subtitle: 'Children Subtitle',
+          subtitle: '',
         }
       case '/ministries/jeepney':
         return {
           image: JeepnyImage,
           title: 'Jeepney Ministry',
-          subtitle: 'Jeepney Subtitle',
+          subtitle: '',
         }
       case '/ministries/youth':
         return {
           image: YouthImage,
           title: 'Youth Ministry',
-          subtitle: 'Youth Subtitle',
+          subtitle: '',
         }
       case '/ministries/kitchen':
         return {
           image: defaultImage,
           title: 'Kitchen Ministry',
-          subtitle: 'Kitchen Subtitle',
+          subtitle: '',
         }
       case '/ministries/choir':
         return {
           image: ChoirImage,
           title: 'Choir Ministry',
-          subtitle: 'Choir Subtitle',
+          subtitle: '',
         }
       case '/ministries/cavalry':
         return {
-          image: defaultImage,
+          image: CavalryImage,
           title: '2nd Cavalry Squadron',
-          subtitle: 'Cavalry Subtitle',
+          subtitle: '',
         }
       case '/ministries/multimedia':
         return {
           image: defaultImage,
           title: 'Multimedia Ministry',
-          subtitle: 'Multimedia Subtitle',
+          subtitle: '',
         }
       case '/ministries/nursery':
         return {
           image: defaultImage,
           title: 'Nursery Ministry',
-          subtitle: 'Nursery Subtitle',
+          subtitle: '',
         }
       case '/ministries/strings-of-grace':
         return {
           image: SogImage,
           title: 'Music Ministry',
-          subtitle: 'String of Grace Subtitle',
+          subtitle: '',
         }
       case '/ministries/log':
         return {
           image: LogImage,
           title: 'Ladies of Grace Ministry',
-          subtitle: 'Log Subtitle',
+          subtitle: '',
         }
       default:
         return {
           image: defaultImage,
           title: 'OUR MINISTRIES',
-          subtitle: 'GROWING TOGETHER IN FAITH',
+          subtitle: '',
         }
     }
   }
@@ -107,7 +108,7 @@ const MinistryLayout = () => {
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-medium tracking-wide mb-2 uppercase">
             {title}
           </h1>
-          <p className="text-sm md:text-lg tracking-[0.15em] font-light uppercase">{subtitle}</p>
+          <p className="text-sm md:text-lg tracking-[0.15em] font-light uppercase"><hr className="h-1 mx-10 my-4 bg-white border-0 rounded-sm md:my-10"></hr>{subtitle}</p>
         </div>
 
         <div className="absolute -bottom-px left-0 w-full overflow-hidden leading-none z-20">

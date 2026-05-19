@@ -5,7 +5,7 @@ const staffMembers = [
   { name: 'Rodolfo O. Calayan', role: 'Head Pastor' },
   { name: 'Bro. Jayvee Tarranco', role: 'Sunday School Administrator' },
   { name: 'Bro. Harold Paycao', role: 'Music Director' },
-  { name: 'Bro. Allan Chester Lagrason', role: 'Media Director' },
+  { name: 'Alma Leah Nabella', role: 'Media Director' },
   { name: 'Bro. Ronel Nieva', role: 'Youth Leader' },
   { name: 'Bro. Paolo Narzoles', role: 'Jeep Director' },
   { name: 'Sis. Gloriefel Paycao', role: 'Ladies Director' },

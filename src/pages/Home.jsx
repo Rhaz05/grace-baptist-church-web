@@ -288,7 +288,7 @@ const ScheduleItem = ({ time, title, desc }) => (
   <motion.div
     variants={fadeInUp}
     whileHover={{ backgroundColor: '#fff5f5' }}
-    className="xl:h-90 xl:py-20 md:pt-20 sm:py-10 px-4 transition-colors group cursor-default"
+    className="xl:h-90 xl:py-20 md:pt-20  sm:py-10 px-4 transition-colors group cursor-default"
   >
     <div className="flex flex-col items-center mb-7">
       <span className="pb-8 font-black text-zinc-900 text-center text-3xl tracking-tighter">
@@ -296,7 +296,7 @@ const ScheduleItem = ({ time, title, desc }) => (
       </span>
       <h4 className="font-bold text-gray-800 text-center text-xl mb-1">{title}</h4>
       <p className="text-gray-500 text-center font-medium">{desc}</p>
-      <FaInfoCircle className="text-church-red xl:absolute xl:bottom-22 sm:mt-10 text-xl group-hover:rotate-12 transition-transform" />
+      <FaInfoCircle className="text-church-red xl:absolute xl:bottom-30 sm:mt-10 text-xl group-hover:rotate-12 transition-transform" />
     </div>
   </motion.div>
 )
