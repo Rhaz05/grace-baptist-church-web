@@ -86,11 +86,11 @@ const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-80 bg-church-dark text-white z-70 shadow-2xl overflow-y-auto"
+              className="fixed top-0 right-0 h-full w-80 bg-[#ecfeffa2] text-[#910b0b] backdrop-blur-[50px] z-70 shadow-2xl overflow-y-auto"
             >
               <div className="flex justify-between items-center p-4 border-b border-gray-700">
                 <h5 className="font-bold text-lg">Menu</h5>
-                <button onClick={toggleMenu} className="text-gray-400 hover:text-white">
+                <button onClick={toggleMenu} className="text-church-red hover:text-white">
                   <FaTimes size={24} />
                 </button>
               </div>
@@ -124,7 +124,7 @@ const Header = () => {
                   onToggle={() => toggleSubMenu('ministries')}
                 >
                   <SubLink to="/ministries/bob" label="Band of Brothers" onClick={toggleMenu} />
-                  <SubLink to="/ministries/cavalry" label="Cavalry Squadron" onClick={toggleMenu} />
+                  <SubLink to="/ministries/cavalry" label="2nd Cavalry Squadron" onClick={toggleMenu} />
                   <SubLink
                     to="/ministries/children"
                     label="Children Ministry"
@@ -179,7 +179,7 @@ const NavLink = ({ to, icon, label, onClick }) => (
   <Link
     to={to}
     onClick={onClick}
-    className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-white/5 hover:text-church-red hover:pl-5 transition-all duration-200 text-gray-200 font-medium"
+    className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-white/5 hover:text-church-red hover:pl-5 transition-all duration-200 text-church-dark font-medium"
   >
     <span className="text-church-red opacity-80">{icon}</span>
     {label}
@@ -190,7 +190,7 @@ const SubLink = ({ to, label, onClick }) => (
   <Link
     to={to}
     onClick={onClick}
-    className="block py-2 px-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors"
+    className="block py-2 px-2 text-sm text-church-dark hover:text-church-red hover:bg-white/5 rounded transition-colors"
   >
     {label}
   </Link>
@@ -200,7 +200,7 @@ const CollapsibleMenu = ({ title, icon, isOpen, onToggle, children }) => (
   <div>
     <button
       onClick={onToggle}
-      className="w-full flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 hover:text-church-red hover:pl-5 transition-all duration-200 text-gray-200 font-medium"
+      className="w-full flex items-center justify-between px-3 py-3 rounded-lg hover:bg-white/5 hover:text-church-red hover:pl-5 transition-all duration-200 text-church-dark font-medium"
     >
       <div className="flex items-center gap-3">
         <span className="text-church-red opacity-80">{icon}</span>

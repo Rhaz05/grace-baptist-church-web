@@ -106,6 +106,47 @@ const About = () => {
           </motion.div>
         </div>
       </motion.div>
+      
+      {/* --- HISTORY SECTION --- */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={fadeInUp}
+        className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl mb-20 border border-gray-100"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-450px">
+          {/* Text Content */}
+          <div className="lg:col-span-7 p-10 md:p-16 flex flex-col justify-center">
+            <h2 className="text-4xl font-black text-gray-900 mb-2 tracking-tight">
+              Our History
+            </h2>
+            <p className="text-church-red mb-8 italic font-serif text-xl font-medium">
+              A legacy of faith and community
+            </p>
+
+            <p className="text-gray-600 mb-8 text-lg leading-relaxed">
+              Grace Baptist Church has been serving the Lucena City community
+              for decades. We started as a small bible study group and have
+              grown into a vibrant congregation dedicated to worship,
+              discipleship, and outreach.
+            </p>
+
+            <motion.div
+              whileHover={{ x: 10 }}
+              className="border-l-4 border-church-red/30 pl-6 py-3 bg-gray-50 rounded-r-xl"
+            >
+              <p className="text-md text-gray-500 italic font-medium">
+                "For where two or three are gathered in my name, there am I
+                among them." <br />{" "}
+                <span className="text-church-red not-italic font-bold">
+                  — Matthew 18:20
+                </span>
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
 
       {/* --- MAP & CONTACT SECTION --- */}
       <motion.section
