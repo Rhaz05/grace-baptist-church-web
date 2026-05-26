@@ -10,6 +10,7 @@ import LogImage from '../assets/images/log.jpg'
 import SogImage from '../assets/images/sog.jpg'
 import YouthImage from '../assets/images/youth.jpg'
 import CavalryImage from '../assets/images/cavalry.jpg'
+import KitchenImage from '../assets/images/kitchen.jpg'
 import defaultImage from '../assets/images/place-holder-image.jpg'
 
 const MinistryLayout = () => {
@@ -43,7 +44,7 @@ const MinistryLayout = () => {
         }
       case '/ministries/kitchen':
         return {
-          image: defaultImage,
+          image: KitchenImage,
           title: 'Kitchen Ministry',
           subtitle: '',
         }
