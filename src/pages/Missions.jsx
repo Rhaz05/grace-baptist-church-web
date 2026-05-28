@@ -1,56 +1,142 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import {
-  Heart,
-  MapPin,
-  Info,
-  ChevronDown,
-  Users,
-  Church,
-  Globe,
-  Quote,
-} from "lucide-react";
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import { Heart, MapPin, Info, ChevronDown, Users, Church, Globe, Quote } from 'lucide-react'
 
 const missionsData = [
   {
     id: 1,
-    title: "Local Community Outreach",
-    location: "City Center",
-    desc: "Our local outreach program focuses on feeding the homeless and providing essential supplies to families in need within our city. We believe in being the hands and feet of Jesus in our own backyard.",
+    title: 'HOME MISSIONS',
     icon: <Users size={40} />,
     updates: [
       {
-        title: "Current Needs",
-        content:
-          "We are currently collecting canned goods, warm coats, and hygiene products for the upcoming drive.",
+        title: 'Joel De Luna (Padre Brugo)',
+        content: [
+          'School Ministry',
+          'Members spiritual growth',
+          'BS salvation',
+        ],
       },
       {
-        title: "Volunteer Opportunities",
-        content:
-          "Join us every Saturday morning at 9:00 AM at the Main Plaza for distribution.",
+        title: 'Sony Guico (Padre Burgos)',
+        content: [
+          'Maturity of all members', 
+          'Soul Winning',
+          'Bible Studies',
+          'Improvement of the Church Building',
+          'Good Health',
+          'Leardership',
+        ],
+      },
+      {
+        title: 'Jayson Rogador (Aurora',
+        content: [
+          'Service Vehicle', 
+          'Music Ministry', 
+          'Service Vehicle',
+          'More Souls to be saved and faith workers'
+        ],
+      },
+      {
+        title: 'Angello Santoalla (Sta. Cruz)',
+        content: [
+          'Salvation BS', 
+          'Church members growth', 
+          'Financial provisions and Health',
+          'Wisdom, Health'
+        ],
+      },
+      {
+        title: 'Emman Fortin (Pagbilao)',
+        content: [
+          'Salvation of BS&Jail Minisitry', 
+          'Financial Provisions&Vehicle', 
+          'Monthly mission and house rent',
+          '1st Mission Anniversary'
+        ],
       },
     ],
   },
   {
     id: 2,
-    title: "Church Planting Ministry",
-    location: "Regional",
-    desc: "Equipping pastors and leaders to plant new churches in underserved rural areas. Our goal is to ensure every community has access to a Gospel-preaching local church.",
-    icon: <Church size={40} />,
+    title: 'FOREIGN MISSIONS',
+    location: 'International',
+    desc: 'Supporting missionaries around the world through prayer, financial aid, outreach programs, and community development projects.',
+    icon: <Globe size={40} />,
     updates: [
       {
-        title: "New Plant Launched",
-        content:
-          "We successfully launched a new fellowship in the northern district last month. 15 new families have joined!",
+        title: 'Deal Lenge (Congo)',
+        content: [
+          'Congolese people to be saved', 
+          'Printer for Gospel Tracks', 
+          'Partnership and Consistent Support'
+        ],
+      },
+      {
+        title: 'Josephine Rivera (Tanzania)',
+        content: [
+          'More souls to be saved', 
+          'Open door for ministry', 
+          'More supporting churches'
+        ],
+      },
+      {
+        title: 'Jon Coronel (Tenzania)',
+        content: [
+          "God's Wisdom", 
+          'Health', 
+        ],
+      },
+      {
+        title: 'Chritopher Mwamba (Zambia)',
+        content: [
+          'Provision for church building and air fare ticket', 
+          'Bro. Amos Bwalya and Clever', 
+          'Mulenga - Bible School next year'
+        ],
+      },
+      {
+        title: "Stephen Jay Araña (Nepal)",
+        content: [
+          'Provision for visa and protection',
+          'More Nepalese to be saved',
+          'Wisdom and Knowledge',
+        ],
+      },
+      {
+        title: 'Tychicus Mabangio (India)',
+        content: [
+          'Persecuted churches in India', 
+          'Salvation of Indian people',
+        ],
+      },
+      {
+        title: 'Dean Alhim Medrano (Costa Rica)',
+        content: [
+          'Provision of ( plane tickets, visa expences, house rental)',
+          'Last leg of Deputation', 
+          'Study of language and culture'
+        ],
+      },
+      {
+        title: 'Mildred Agunod (Mexico)',
+        content: [
+          'Guidance, Provision and Wisdom',
+          'More contact mission work',
+        ],
+      },
+      {
+        title: 'Jireh Matembo (Canada)',
+        content: [
+        ],
       },
     ],
   },
-];
+]
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+}
 
 const Missions = () => {
   return (
@@ -93,8 +179,8 @@ const Missions = () => {
             <div className="max-w-3xl mx-auto relative">
               <Quote className="absolute -top-6 -left-8 text-gray-100 w-20 h-20 -z-10" />
               <p className="text-xl md:text-2xl text-gray-600 italic font-serif leading-relaxed mb-6">
-                "Go therefore and make disciples of all nations, baptizing them
-                in the name of the Father and of the Son and of the Spirit."
+                "Go therefore and make disciples of all nations, baptizing them in the name of the
+                Father and of the Son and of the Spirit."
               </p>
               <p className="text-church-red font-black uppercase tracking-[0.3em] text-sm">
                 — Matthew 28:19
@@ -111,8 +197,8 @@ const Missions = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 // --- SUB-COMPONENT: MISSION CARD ---
 const MissionCard = ({ mission, index }) => {
@@ -124,70 +210,47 @@ const MissionCard = ({ mission, index }) => {
       transition={{ duration: 0.8 }}
       className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-100 group"
     >
-      <div className="flex flex-col lg:flex-row">
-        {/* Visual / Icon Side */}
-        <div className="lg:w-1/3 bg-gray-50 flex flex-col items-center justify-center p-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-church-red/5 group-hover:bg-church-red/10 transition-colors"></div>
-          <div className="relative z-10 text-gray-300 group-hover:text-church-red transition-all duration-500 transform group-hover:scale-110">
-            {mission.icon}
-          </div>
-          <p className="mt-6 relative z-10 text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 group-hover:text-gray-600 transition-colors">
-            Mission Field
-          </p>
-        </div>
-
+      <div className="flex justify-center flex-col lg:flex-row">
         {/* Content Side */}
-        <div className="lg:w-2/3 p-10 md:p-14 flex flex-col">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div className="lg:w-4/3 justify-center p-10 md:p-14 flex flex-col">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 mb-6">
             <h3 className="text-3xl font-black text-gray-900 tracking-tight uppercase">
               {mission.title}
             </h3>
-            <div className="flex items-center gap-2 px-4 py-2 bg-church-red/10 text-church-red rounded-full text-xs font-black uppercase tracking-widest w-fit">
-              <MapPin size={14} /> {mission.location}
-            </div>
           </div>
 
-          <p className="text-gray-500 text-lg leading-relaxed mb-10 font-medium">
-            {mission.desc}
-          </p>
-
-          <div className="space-y-4">
-            {mission.updates.map((update, uIdx) => (
-              <AccordionItem
-                key={uIdx}
-                title={update.title}
-                content={update.content}
-              />
-            ))}
+          <div className="flex md:justify-center md:flex-row ">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+              {mission.updates.map((update, uIdx) => (
+                <AccordionItem key={uIdx} title={update.title} content={update.content} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
 // --- SUB-COMPONENT: CUSTOM ACCORDION ---
 const AccordionItem = ({ title, content }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div
-      className={`border rounded-2xl transition-all duration-300 ${isOpen ? "border-church-red shadow-lg bg-red-50/30" : "border-gray-100 bg-gray-50"}`}
+      className={`border rounded-2xl transition-all duration-300 ${isOpen ? 'border-church-red shadow-lg bg-red-50/30' : 'border-gray-100 bg-gray-50'}`}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between p-5 text-left outline-none"
       >
         <span className="flex items-center gap-3 font-bold text-gray-800 text-sm uppercase tracking-wider">
-          <Info
-            size={16}
-            className={isOpen ? "text-church-red" : "text-gray-400"}
-          />
+          <Info size={16} className={isOpen ? 'text-church-red' : 'text-gray-400'} />
           {title}
         </span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
-          className={isOpen ? "text-church-red" : "text-gray-400"}
+          className={isOpen ? 'text-church-red' : 'text-gray-400'}
         >
           <ChevronDown size={18} />
         </motion.div>
@@ -197,19 +260,23 @@ const AccordionItem = ({ title, content }) => {
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
+            animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <div className="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-church-red/10 pt-4">
-              {content}
+            <div className="px-5 pb-5 border-t border-church-red/10 pt-4">
+              <ul className="list-disc pl-5 space-y-2 text-gray-600 text-sm leading-relaxed">
+                {content.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
-  );
-};
+  )
+}
 
-export default Missions;
+export default Missions

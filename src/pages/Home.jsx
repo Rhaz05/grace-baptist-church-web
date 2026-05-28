@@ -119,7 +119,7 @@ const Home = () => {
 
       <div className="xl:flex justify-center gap-3 mb-28 ">
         {/* --- SERVICES INFO --- */}
-        <section className="mt-8 text-center px-10 relative">
+        <section className="mt-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -141,7 +141,7 @@ const Home = () => {
               school class, traditional worship, or midweek prayer, there is a place for you here.
             </p>
             {/* --- SCHEDULE GRID --- */}
-            <section className="xl:flex justify-center gap-5 px-10 max-w-7xl mx-auto">
+            <section className="xl:flex justify-center gap-5 max-w-7xl mx-auto">
               {/* SUNDAYS */}
               <motion.div
                 initial="hidden"
