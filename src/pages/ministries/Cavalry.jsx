@@ -1,9 +1,14 @@
 import React from 'react'
 import { Carousel } from 'antd'
 import cavalry from '../../assets/images/cavalry.jpg'
-import youth from '../../assets/images/youth.jpg'
+import cavalry1 from '../../assets/images/cavalry1.jpg'
+import cavalry2 from '../../assets/images/cavalry2.jpg'
+import cavalry3 from '../../assets/images/cavalry3.jpg'
+import cavalry4 from '../../assets/images/cavalry4.jpg'
+import cavalry5 from '../../assets/images/cavalry5.jpg'
+import cavalry6 from '../../assets/images/cavalry6.jpg'
 
-const carouselImages = [cavalry, youth]
+const carouselImages = [cavalry, cavalry1, cavalry2, cavalry3, cavalry4, cavalry5, cavalry6]
 
 function Cavalry() {
   return (
