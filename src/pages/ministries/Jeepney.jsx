@@ -5,7 +5,7 @@ import jeepny1 from '../../assets/images/jeepny1.jpg'
 import jeepny2 from '../../assets/images/jeepny2.jpg'
 import jeepny3 from '../../assets/images/jeepny3.jpg'
 import jeepny4 from '../../assets/images/jeepny4.jpg'
-import jeepny5 from '../../assets/images/jeepny5.JPG'
+import jeepny5 from '../../assets/images/jeepny5.jpg'
 import jeepny6 from '../../assets/images/jeepny6.jpg'
 import jeepny7 from '../../assets/images/jeepny7.jpg'
 
@@ -23,7 +23,7 @@ function Jeepney() {
         </h2>
         <div className="w-16 h-1 bg-church-red mx-auto mt-4 rounded-full"></div>
       </div>
-      
+
       <div className="text-left relative pl-6 border-l-4 border-church-red">
         <p className="text-slate-700 leading-relaxed text-lg md:text-xl font-medium text-justify">
           The Jeepney Ministry of Grace Baptist Church serves as an outreach and support ministry,
