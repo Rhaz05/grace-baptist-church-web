@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion'
 import { FaUser } from 'react-icons/fa'
 
+import photo1 from '../assets/images/RodolfoOCalaya.jpg'
+
 const staffMembers = [
-  { name: 'Rodolfo O. Calayan', role: 'Head Pastor' },
-  { name: 'Bro. Jayvee Tarranco', role: 'Sunday School Administrator' },
-  { name: 'Bro. Harold Paycao', role: 'Music Director' },
-  { name: 'Alma Leah Nabella', role: 'Media Director' },
-  { name: 'Bro. Ronel Nieva', role: 'Youth Leader' },
-  { name: 'Bro. Paolo Narzoles', role: 'Jeep Director' },
-  { name: 'Sis. Gloriefel Paycao', role: 'Ladies Director' },
-  { name: 'Bro. Michael Alub', role: 'Maintenance Director' },
+  { photo: photo1, name: 'Rodolfo O. Calayan', role: 'Head Pastor' },
+  { photo: '', name: 'Bro. Jayvee Tarranco', role: 'Sunday School Administrator' },
+  { photo: '', name: 'Alma Leah Nabella', role: 'Media Director' },
+  { photo: '', name: 'Bro. Ronel Nieva', role: 'Youth Leader' },
+  { photo: '', name: 'Bro. Paolo Narzoles', role: 'Jeep Director' },
+  { photo: '', name: 'Bro. Michael Alub', role: 'Maintenance Director' },
 ]
 
 const Staff = () => {
@@ -41,13 +41,13 @@ const Staff = () => {
             <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Mission</h2>
             <div className="space-y-4 text-gray-600 leading-relaxed text-lg">
               <p>
-                Egestas elit dui scelerisque ut eu purus aliquam vitae habitasse. Egestas elit dui
-                scelerisque ut eu purus aliquam vitae habitasse. Egestas elit dui scelerisque ut eu
-                purus aliquam vitae habitasse.
+                “To glorify God by preaching the Gospel, winning souls to Christ, discipling
+                believers, and strengthening families through the teaching of God's Word and
+                faithful Christian service.”
               </p>
               <p className="italic border-t border-gray-100 pt-4">
-                Excepteur efficient emerging, minim veniam enim aute carefully curated Ginza
-                conversation exquisite perfect nostrud nisi intricate Content.
+                "Go ye therefore, and teach all nations, baptizing them in the name of the Father,
+                and of the Son, and of the Holy Ghost : Matthew 28:19 kjv
               </p>
             </div>
           </div>
@@ -59,7 +59,7 @@ const Staff = () => {
             Our Team
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
             {staffMembers.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -71,7 +71,8 @@ const Staff = () => {
                 <div className="bg-white rounded-2xl p-6 text-center h-full shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100">
                   {/* Photo Wrapper */}
                   <div className="relative w-28 h-28 mx-auto mb-4">
-                    <div className="w-full h-full rounded-full bg-gray-100 flex items-center justify-center border-4 border-gray-50 shadow-inner group-hover:border-church-red/20 transition-colors duration-300">
+                    <div className="w-full h-full rounded-full bg-gray-100 flex items-center justify-center border-4 border-gray-50 shadow-inner overflow-hidden group-hover:border-church-red/20 transition-colors duration-300">
+                      <img src={member.photo} alt="" />
                       <FaUser className="text-gray-300 text-4xl group-hover:text-church-red transition-colors duration-300" />
                     </div>
                   </div>
